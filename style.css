@@ -1,0 +1,546 @@
+:root {
+    --racing-red: #ff2400;
+    --dark-red: #cc1d00;
+    --carbon-dark: #0a0a0a;
+    --carbon-mid: #1f1f1f;
+    --carbon-light: #333333;
+    --bright-white: #ffffff;
+    --text-gray: #cccccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--carbon-dark);
+    color: var(--bright-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--bright-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--bright-white);
+    text-shadow: 2px 2px 0px var(--racing-red);
+}
+
+/* Header & Logo */
+header {
+    background: linear-gradient(135deg, var(--carbon-dark) 0%, var(--carbon-mid) 100%);
+    border-bottom: 2px solid var(--racing-red);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container svg {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--racing-red);
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 70px;
+    padding: 120px 0 160px;
+    background: radial-gradient(circle at center, var(--carbon-mid) 0%, var(--carbon-dark) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 36, 0, 0.03) 10px, rgba(255, 36, 0, 0.03) 20px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--bright-white);
+}
+
+.hero h1 span {
+    color: var(--racing-red);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--racing-red);
+    color: var(--bright-white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+    transform: scale(1.05) skewX(-10deg);
+}
+
+.btn-secondary {
+    background-color: var(--bright-white);
+    color: var(--carbon-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-gray);
+    transform: scale(1.05) skewX(-10deg);
+}
+
+/* Sections Common */
+.section {
+    padding: 100px 0;
+}
+
+.slanted-bg {
+    background: var(--carbon-mid);
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    padding: 150px 0;
+    margin: -50px 0;
+}
+
+/* Grid Layouts */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Cards */
+.aero-card {
+    background: var(--carbon-light);
+    padding: 40px 30px;
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+    transition: all 0.3s;
+    border-left: 4px solid var(--racing-red);
+    position: relative;
+    overflow: hidden;
+}
+
+.aero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: left 0.5s;
+}
+
+.aero-card:hover {
+    transform: translateY(-10px);
+    background: var(--bright-white);
+}
+
+.aero-card:hover::before {
+    left: 100%;
+}
+
+.aero-card:hover h3, .aero-card:hover p {
+    color: var(--carbon-dark);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
+.aero-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--bright-white);
+}
+
+.aero-card p {
+    color: var(--text-gray);
+}
+
+/* Pricing */
+.pricing-card {
+    background: var(--carbon-mid);
+    padding: 50px 30px;
+    text-align: center;
+    border: 2px solid var(--carbon-light);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.pricing-card.popular {
+    border-color: var(--racing-red);
+    transform: scale(1.05);
+    background: linear-gradient(180deg, var(--carbon-mid) 0%, var(--carbon-dark) 100%);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+}
+
+.pricing-card.popular:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.pricing-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--racing-red);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.pricing-features li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--text-gray);
+}
+
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* FAQ */
+.faq-item {
+    background: var(--carbon-light);
+    margin-bottom: 20px;
+    padding: 25px 30px;
+    border-left: 4px solid var(--racing-red);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+.faq-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.faq-item p {
+    color: var(--text-gray);
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: var(--carbon-mid);
+    padding: 30px;
+    font-style: italic;
+    position: relative;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-author {
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--racing-red);
+    text-align: right;
+    font-style: normal;
+}
+
+/* Footer */
+footer {
+    background: var(--carbon-dark);
+    padding: 50px 0 30px;
+    border-top: 2px solid var(--racing-red);
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 25px;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    color: var(--text-gray);
+    font-style: italic;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+.footer-links a:hover {
+    color: var(--racing-red);
+}
+
+.copyright {
+    color: var(--carbon-light);
+    font-size: 0.9rem;
+}
+
+/* Subpages */
+.subpage-hero {
+    margin-top: 70px;
+    padding: 80px 0;
+    text-align: center;
+    background: var(--carbon-mid);
+    border-bottom: 2px solid var(--racing-red);
+}
+
+.subpage-hero h1 {
+    font-size: 3rem;
+    color: var(--bright-white);
+}
+
+.content-section {
+    padding: 60px 0 100px;
+}
+
+.prose h2 {
+    color: var(--racing-red);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.prose p {
+    margin-bottom: 20px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.prose ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: var(--text-gray);
+}
+
+.prose li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.2rem; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { text-align: center; }
+    .pricing-card.popular { transform: none; }
+    .pricing-card.popular:hover { transform: translateY(-5px); }
+    .nav-links { display: none; }
+    .slanted-bg { margin: 0; clip-path: none; padding: 80px 0; }
+    .section-title { font-size: 2rem; }
+}
+
+/* Article Content Link Styles */
+.article-content a {
+    color: #e60000 !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.article-content a:visited {
+    color: #e60000 !important;
+}
+.article-content a:hover {
+    opacity: 0.8;
+}
+
+/* Force CTA Button Styling in Nav */
+.nav-cta {
+    background-color: #ff2400 !important;
+    color: #fff !important;
+    padding: 8px 20px !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: transform 0.2s, opacity 0.2s !important;
+}
+.nav-cta:hover {
+    transform: translateY(-2px) !important;
+    opacity: 0.9 !important;
+}
+
+/* Fix for article card titles on hover */
+.aero-card h3 a {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+.aero-card:hover h3 a {
+    color: #111111 !important;
+}
+.aero-card:hover p {
+    color: #333333 !important;
+}
+
+/* Article Content Typography & Spacing */
+.article-content h2 {
+    margin-top: 2.5em !important;
+    margin-bottom: 1em !important;
+    line-height: 1.4 !important;
+}
+.article-content h3 {
+    margin-top: 2em !important;
+    margin-bottom: 0.8em !important;
+    line-height: 1.4 !important;
+}
+.article-content p {
+    margin-bottom: 1.5em !important;
+}
+.article-content ul, .article-content ol {
+    margin-bottom: 1.5em !important;
+    padding-left: 2em !important;
+}
+.article-content li {
+    margin-bottom: 0.5em !important;
+}
+
+/* Mobile Hamburger Menu Fix */
+.menu-toggle, .menu-hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 10000;
+        margin-left: auto; /* Push to the right */
+    }
+    .menu-hamburger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links, nav {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #111;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(128,128,128,0.2);
+    }
+    
+    .menu-toggle:checked ~ .nav-links, .menu-toggle:checked ~ nav {
+        display: flex !important;
+    }
+    
+    .nav-links a, nav a {
+        margin: 10px 0 !important;
+        font-size: 16px !important;
+    }
+    
+    /* Hamburger animation */
+    .menu-toggle:checked + .menu-hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle:checked + .menu-hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked + .menu-hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
